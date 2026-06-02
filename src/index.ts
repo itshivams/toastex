@@ -10,16 +10,20 @@ export interface ToastexOptions {
   message: string;
   type?: ToastType;
   theme?: ToastTheme;
-  variant?: 'default' | 'swift' | 'chat' | 'minimal' | 'outline';
+  variant?: 'default' | 'swift' | 'chat' | 'minimal' | 'outline' | 'liquid-glass' | 'liquid-chat';
   position?: ToastPosition;
   duration?: number; // In seconds
   sound?: boolean;
   logoUrl?: string;
+  avatarUrl?: string;
+  appIconUrl?: string;
+  subtitle?: string;
+  time?: string;
 }
 
 export interface ToastexGlobalConfig {
   theme?: ToastTheme;
-  variant?: 'default' | 'swift' | 'chat' | 'minimal' | 'outline';
+  variant?: 'default' | 'swift' | 'chat' | 'minimal' | 'outline' | 'liquid-glass' | 'liquid-chat';
   position?: ToastPosition;
   duration?: number;
   sound?: boolean;
@@ -167,6 +171,113 @@ export class Toastex {
       minimalWrapper.appendChild(msg);
       minimalWrapper.appendChild(closeBtn);
       toast.appendChild(minimalWrapper);
+    } else if (variant === 'liquid-glass') {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'toastex-liquid-wrapper';
+      
+      const header = document.createElement('div');
+      header.className = 'toastex-liquid-header';
+      
+      const icon = document.createElement('div');
+      icon.className = 'toastex-liquid-icon';
+      if (opts.logoUrl) {
+        const img = document.createElement('img');
+        img.src = opts.logoUrl;
+        icon.appendChild(img);
+      } else {
+        icon.innerHTML = ICONS[type] || ICONS.default;
+      }
+      header.appendChild(icon);
+      
+      const appName = document.createElement('span');
+      appName.className = 'toastex-liquid-app-name';
+      appName.innerText = 'NOTIFICATION';
+      header.appendChild(appName);
+      
+      const time = document.createElement('span');
+      time.className = 'toastex-liquid-time';
+      time.innerText = 'now';
+      header.appendChild(time);
+      
+      wrapper.appendChild(header);
+      
+      if (opts.title) {
+        const title = document.createElement('div');
+        title.className = 'toastex-liquid-title';
+        title.innerText = opts.title;
+        wrapper.appendChild(title);
+      }
+      
+      const body = document.createElement('div');
+      body.className = 'toastex-liquid-body';
+      body.innerText = opts.message;
+      wrapper.appendChild(body);
+      
+      toast.appendChild(wrapper);
+    } else if (variant === 'liquid-chat') {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'toastex-liquid-chat-wrapper';
+
+      const leftSide = document.createElement('div');
+      leftSide.className = 'toastex-liquid-chat-left';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'toastex-liquid-chat-avatar';
+      if (opts.avatarUrl) {
+        const img = document.createElement('img');
+        img.src = opts.avatarUrl;
+        avatar.appendChild(img);
+      } else if (opts.logoUrl) {
+        const img = document.createElement('img');
+        img.src = opts.logoUrl;
+        avatar.appendChild(img);
+      } else {
+        avatar.innerHTML = ICONS[type] || ICONS.default;
+      }
+      leftSide.appendChild(avatar);
+
+      if (opts.appIconUrl) {
+        const appIcon = document.createElement('div');
+        appIcon.className = 'toastex-liquid-chat-app-icon';
+        const appImg = document.createElement('img');
+        appImg.src = opts.appIconUrl;
+        appIcon.appendChild(appImg);
+        leftSide.appendChild(appIcon);
+      }
+
+      const rightSide = document.createElement('div');
+      rightSide.className = 'toastex-liquid-chat-right';
+
+      const header = document.createElement('div');
+      header.className = 'toastex-liquid-chat-header';
+      
+      const title = document.createElement('span');
+      title.className = 'toastex-liquid-chat-title';
+      title.innerText = opts.title || '';
+      header.appendChild(title);
+      
+      const time = document.createElement('span');
+      time.className = 'toastex-liquid-chat-time';
+      time.innerText = opts.time || 'now';
+      header.appendChild(time);
+      
+      rightSide.appendChild(header);
+      
+      if (opts.subtitle) {
+        const subtitle = document.createElement('div');
+        subtitle.className = 'toastex-liquid-chat-subtitle';
+        subtitle.innerText = opts.subtitle;
+        rightSide.appendChild(subtitle);
+      }
+
+      const body = document.createElement('div');
+      body.className = 'toastex-liquid-chat-body';
+      body.innerText = opts.message;
+      rightSide.appendChild(body);
+
+      wrapper.appendChild(leftSide);
+      wrapper.appendChild(rightSide);
+      toast.appendChild(wrapper);
     } else {
       // Default & Outline styles use the standard DOM structure
       if (opts.logoUrl) {

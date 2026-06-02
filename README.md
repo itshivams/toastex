@@ -17,7 +17,7 @@ A robust, enterprise-standard, and highly customizable vanilla JS/TS toast notif
 ## Features
 
 - **Zero Dependencies**: Lightweight and fast, built with vanilla JS/TS.
-- **Multiple Variants**: Choose from `default`, `swift`, `chat`, `minimal`, and `outline` styles.
+- **Multiple Variants**: Choose from `default`, `swift`, `chat`, `minimal`, `outline`, `liquid-glass`, and `liquid-chat` styles.
 - **Theming**: Built-in support for `light` and `dark` themes.
 - **Customizable Positions**: Display toasts in 6 different positions (e.g., top-right, bottom-center).
 - **TypeScript Ready**: Fully typed for a great developer experience.
@@ -66,7 +66,7 @@ Toastex.show({
   message: 'Hey there! How are you doing today?',
   type: 'info',         // 'success' | 'error' | 'warning' | 'info' | 'default'
   theme: 'dark',        // 'light' | 'dark'
-  variant: 'chat',      // 'default' | 'swift' | 'chat' | 'minimal' | 'outline'
+  variant: 'chat',      // 'default' | 'swift' | 'chat' | 'minimal' | 'outline' | 'liquid-glass' | 'liquid-chat'
   position: 'top-right',// 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center'
   duration: 5,          // Duration in seconds (0 for persistent)
   sound: true,          // Play an alert sound
@@ -111,11 +111,15 @@ Toastex.info('Info message');
 | `message` | `string` | **Required** | The main message text. |
 | `type` | `ToastType` | `'default'` | Semantic type of the toast (`success`, `error`, etc.). |
 | `theme` | `ToastTheme` | `'light'` | Theme preference (`light` or `dark`). |
-| `variant` | `string` | `'default'` | Design variant (`default`, `swift`, `chat`, `minimal`, `outline`). |
+| `variant` | `string` | `'default'` | Design variant (`default`, `swift`, `chat`, `minimal`, `outline`, `liquid-glass`, `liquid-chat`). |
 | `position` | `ToastPosition`| `'top-right'` | Where the toast should appear on screen. |
 | `duration` | `number` | `5` | How long the toast stays visible in seconds. `0` to disable auto-close. |
 | `sound` | `boolean` | `false` | Whether to play the notification sound. |
 | `logoUrl` | `string` | `undefined` | Custom icon or avatar URL (useful for `chat` variant). |
+| `avatarUrl` | `string` | `undefined` | Large avatar image URL (specifically for `liquid-chat`). |
+| `appIconUrl` | `string` | `undefined` | Small app icon overlaid on avatar (specifically for `liquid-chat`). |
+| `subtitle` | `string` | `undefined` | Secondary title text (specifically for `liquid-chat`). |
+| `time` | `string` | `undefined` | Timestamp text, e.g., 'now' (specifically for `liquid-chat`). |
 
 ## License
 

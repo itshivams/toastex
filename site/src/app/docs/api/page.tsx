@@ -53,7 +53,7 @@ export default function ApiDocs() {
             <tr>
               <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>variant</code></td>
               <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>string</code></td>
-              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}><code>'default' | 'swift' | 'chat' | 'minimal' | 'outline'</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}><code>'default' | 'swift' | 'chat' | 'minimal' | 'outline' | 'liquid-glass' | 'liquid-chat'</code></td>
             </tr>
             <tr>
               <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>position</code></td>
@@ -71,9 +71,29 @@ export default function ApiDocs() {
               <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}>Whether to play a sound effect.</td>
             </tr>
             <tr>
-              <td style={{ padding: '1rem' }}><code>logoUrl</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>logoUrl</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>string</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}>URL for a custom avatar (useful in <code>chat</code> variant).</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>avatarUrl</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>string</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}>Large avatar image URL (specifically for <code>liquid-chat</code>).</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>appIconUrl</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>string</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}>Small app icon overlaid on avatar (specifically for <code>liquid-chat</code>).</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>subtitle</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)' }}><code>string</code></td>
+              <td style={{ padding: '1rem', borderBottom: '1px solid var(--border-light)', color: 'var(--secondary)' }}>Secondary title text (specifically for <code>liquid-chat</code>).</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '1rem' }}><code>time</code></td>
               <td style={{ padding: '1rem' }}><code>string</code></td>
-              <td style={{ padding: '1rem', color: 'var(--secondary)' }}>URL for a custom avatar (useful in <code>chat</code> variant).</td>
+              <td style={{ padding: '1rem', color: 'var(--secondary)' }}>Timestamp text, e.g., 'now' (specifically for <code>liquid-chat</code>).</td>
             </tr>
           </tbody>
         </table>

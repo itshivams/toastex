@@ -6,7 +6,7 @@ export default function VariantsDocs() {
     <div className={styles.article}>
       <h1>Variants & Themes</h1>
       <p>
-        Toastex comes fully equipped with 5 distinct architectural variants and 2 powerful themes to match any design language.
+        Toastex comes fully equipped with 7 distinct architectural variants and 2 powerful themes to match any design language.
       </p>
 
       <h2>Themes</h2>
@@ -41,6 +41,27 @@ Toastex.error('Failed to load', { theme: 'light' });`} language="typescript" />
       <h3>5. Outline</h3>
       <p>A stark, high-contrast variant that removes the background fill and relies entirely on a crisp, colored border.</p>
       <CodeBlock code={`Toastex.error('Connection lost', { variant: 'outline' });`} language="typescript" />
+
+      <h3>6. Liquid Glass</h3>
+      <p>A beautiful iOS-inspired notification with a heavily blurred, translucent background. Adapts dynamically to its underlying colors.</p>
+      <CodeBlock code={`Toastex.show({
+  title: 'iMessage',
+  message: 'Hey! Are we still on for the meeting?',
+  variant: 'liquid-glass',
+  logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg'
+});`} language="typescript" />
+
+      <h3>7. Liquid Chat</h3>
+      <p>A sophisticated, stacked iOS/macOS notification layout featuring large avatars, app badges, subtitles, and timestamps against a rich frosted-glass background.</p>
+      <CodeBlock code={`Toastex.show({
+  title: 'Armando Cajide',
+  subtitle: 'Gym Training',
+  message: 'Anyone up for powerlifting this weekend?',
+  time: 'now',
+  variant: 'liquid-chat',
+  avatarUrl: 'https://avatars.githubusercontent.com/u/9919?v=4',
+  appIconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg'
+});`} language="typescript" />
 
     </div>
   );

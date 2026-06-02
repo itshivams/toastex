@@ -393,4 +393,215 @@
 .toastex.toastex-type-success.toastex-variant-outline { border-color: var(--toastex-success); }
 .toastex.toastex-type-error.toastex-variant-outline { border-color: var(--toastex-error); }
 .toastex.toastex-type-warning.toastex-variant-outline { border-color: var(--toastex-warning); }
+/* Variant: Liquid Glass (iOS style) */
+.toastex.toastex-variant-liquid-glass {
+  padding: 12px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
+  color: #000;
+  min-width: 320px;
+  align-items: stretch;
+}
+.toastex.toastex-theme-dark.toastex-variant-liquid-glass {
+  background: rgba(40, 40, 40, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.toastex.toastex-variant-liquid-glass .toastex-progress { display: none !important; }
+.toastex.toastex-variant-liquid-glass .toastex-liquid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.toastex.toastex-type-success.toastex-variant-liquid-glass .toastex-liquid-icon { color: var(--toastex-success); }
+.toastex.toastex-type-error.toastex-variant-liquid-glass .toastex-liquid-icon { color: var(--toastex-error); }
+.toastex.toastex-type-warning.toastex-variant-liquid-glass .toastex-liquid-icon { color: var(--toastex-warning); }
+.toastex.toastex-type-info.toastex-variant-liquid-glass .toastex-liquid-icon { color: var(--toastex-info); }
 
+.toastex.toastex-variant-liquid-glass .toastex-liquid-app-name {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-time {
+  font-size: 12px;
+  opacity: 0.5;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 2px 0 0 0;
+  line-height: 1.2;
+}
+.toastex.toastex-variant-liquid-glass .toastex-liquid-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0;
+  opacity: 0.9;
+}
+/* Variant: Liquid Chat (iOS stacked style) */
+.toastex.toastex-variant-liquid-chat {
+  padding: 16px 18px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  min-width: 320px;
+  max-width: 360px;
+}
+.toastex.toastex-theme-dark.toastex-variant-liquid-chat {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.toastex.toastex-theme-light.toastex-variant-liquid-chat {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+.toastex.toastex-variant-liquid-chat .toastex-progress { display: none !important; }
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-wrapper {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-left {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.1);
+}
+.toastex.toastex-theme-dark.toastex-variant-liquid-chat .toastex-liquid-chat-avatar {
+  background: rgba(255,255,255,0.1);
+}
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-avatar svg {
+  width: 24px;
+  height: 24px;
+}
+.toastex.toastex-type-success.toastex-variant-liquid-chat .toastex-liquid-chat-avatar { color: var(--toastex-success); }
+.toastex.toastex-type-error.toastex-variant-liquid-chat .toastex-liquid-chat-avatar { color: var(--toastex-error); }
+.toastex.toastex-type-warning.toastex-variant-liquid-chat .toastex-liquid-chat-avatar { color: var(--toastex-warning); }
+.toastex.toastex-type-info.toastex-variant-liquid-chat .toastex-liquid-chat-avatar { color: var(--toastex-info); }
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-app-icon {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-app-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-time {
+  font-size: 13px;
+  opacity: 0.7;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  opacity: 0.95;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toastex.toastex-variant-liquid-chat .toastex-liquid-chat-body {
+  font-size: 14px;
+  line-height: 1.3;
+  opacity: 0.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

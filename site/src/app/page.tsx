@@ -9,15 +9,15 @@ import CodeBlock from "@/components/CodeBlock";
 
 export default function Home() {
   const [type, setType] = useState<"success" | "error" | "info" | "warning" | "default">("success");
-  const [variant, setVariant] = useState<"default" | "swift" | "chat" | "minimal" | "outline">("swift");
+  const [variant, setVariant] = useState<"default" | "swift" | "chat" | "minimal" | "outline" | "liquid-glass" | "liquid-chat">("swift");
   const [position, setPosition] = useState<"top-right" | "top-left" | "bottom-right" | "bottom-left" | "top-center" | "bottom-center">("bottom-right");
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [sound, setSound] = useState<boolean>(true);
   const [message, setMessage] = useState<string>("This is a highly customizable Toastex notification!");
 
   const triggerToast = () => {
-    Toastex.show({
-      title: "Notification",
+    const opts: any = {
+      title: variant === "liquid-glass" ? "iMessage" : "Notification",
       message: message,
       type: type,
       variant: variant,
@@ -25,18 +25,37 @@ export default function Home() {
       theme: theme,
       sound: sound,
       duration: 5,
-    });
+    };
+    
+    if (variant === "liquid-chat") {
+      opts.avatarUrl = "https://avatars.githubusercontent.com/u/9919?v=4";
+      opts.appIconUrl = "https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg";
+      opts.subtitle = "Gym Training";
+      opts.time = "now";
+    } else if (variant === "liquid-glass") {
+      opts.logoUrl = "https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg";
+    } else if (variant === "chat") {
+      opts.logoUrl = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
+    }
+
+    Toastex.show(opts);
   };
 
   const codeSnippet = `Toastex.show({
-  title: 'Notification',
+  title: '${variant === "liquid-glass" ? "iMessage" : "Notification"}',
   message: '${message}',
   type: '${type}',
   variant: '${variant}',
   position: '${position}',
   theme: '${theme}',
   sound: ${sound},
-  duration: 5
+  duration: 5${variant === 'liquid-chat' ? `,
+  avatarUrl: 'https://avatars.githubusercontent.com/u/9919?v=4',
+  appIconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg',
+  subtitle: 'Gym Training',
+  time: 'now'` : ''}${variant === 'liquid-glass' ? `,
+  logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg'` : ''}${variant === 'chat' ? `,
+  logoUrl: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'` : ''}
 });`;
 
   return (
@@ -112,6 +131,8 @@ export default function Home() {
                   <option value="chat">Chat</option>
                   <option value="minimal">Minimal</option>
                   <option value="outline">Outline</option>
+                  <option value="liquid-glass">Liquid Glass</option>
+                  <option value="liquid-chat">Liquid Chat</option>
                 </select>
               </div>
 
