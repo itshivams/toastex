@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toastly Example</title>
+  <link rel="stylesheet" href="./dist/toastly.css?v=2">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 { margin-top: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      background: #3b82f6;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.9; }
+    .btn-success { background: #10b981; }
+    .btn-error { background: #ef4444; }
+    .btn-warning { background: #f59e0b; }
+    .btn-dark { background: #1f2937; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Toastly 🍞</h1>
+    <p>A robust, enterprise-standard vanilla JS/TS toast notification library.</p>
+    
+    <h3>Standard Types</h3>
+    <div class="grid">
+      <button onclick="Toastly.success('Operation completed successfully!', { title: 'Success', sound: true })" class="btn-success">Success (Sound)</button>
+      <button onclick="Toastly.error('Failed to save data. Please try again.', { title: 'Error', sound: true })" class="btn-error">Error (Sound)</button>
+      <button onclick="Toastly.warning('Your session is about to expire.', { title: 'Warning', sound: true })" class="btn-warning">Warning (Sound)</button>
+      <button onclick="Toastly.info('New update is available.', { title: 'Info', sound: true })">Info (Sound)</button>
+      <button onclick="Toastly.show('Just a simple message without a title.')">Default</button>
+    </div>
+
+    <h3>Themes, Logos & Variants</h3>
+    <div class="grid">
+      <button onclick="Toastly.success('Dark theme notification', { theme: 'dark' })" class="btn-dark">Dark Theme</button>
+      <button onclick="Toastly.show({ message: 'Custom Logo Toast', logoUrl: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png', theme: 'light' })" style="background: white; color: black; border: 1px solid #ccc;">Custom Logo (Light)</button>
+      <button onclick="Toastly.show({ message: 'Custom Logo Toast (Dark)', logoUrl: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png', theme: 'dark' })" class="btn-dark">Custom Logo (Dark)</button>
+      <button onclick="Toastly.success('Action successful!', { variant: 'swift', theme: 'light' })" class="btn-success">Swift (Light)</button>
+      <button onclick="Toastly.error('Login failed: invalid credentials', { variant: 'swift', theme: 'dark' })" class="btn-dark">Swift (Dark)</button>
+      <button onclick="Toastly.show({ title: 'John Doe', message: 'Hey! Are we still on for the meeting?', variant: 'chat', logoUrl: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' })" style="background: white; color: black; border: 1px solid #ccc;">Chat Variant</button>
+      <button onclick="Toastly.info('Saved', { variant: 'minimal' })" style="background: #333; color: white;">Minimal</button>
+      <button onclick="Toastly.success('Outline look!', { variant: 'outline', theme: 'light' })" style="background: transparent; color: black; border: 2px solid #22c55e;">Outline</button>
+    </div>
+
+    <h3>Behavior & Positioning</h3>
+    <div class="grid">
+      <button onclick="Toastly.info('This will stay for 10 seconds', { duration: 10 })">Long Duration (10s)</button>
+      <button onclick="Toastly.info('This will not auto-close', { duration: 0 })">No Timeout</button>
+      <button onclick="Toastly.success('Top Left!', { position: 'top-left' })">Top Left</button>
+      <button onclick="Toastly.success('Top Center!', { position: 'top-center' })">Top Center</button>
+      <button onclick="Toastly.success('Bottom Left!', { position: 'bottom-left' })">Bottom Left</button>
+      <button onclick="Toastly.success('Bottom Center!', { position: 'bottom-center' })">Bottom Center</button>
+    </div>
+  </div>
+
+  <script src="./dist/index.global.js?v=2"></script>
+  <script>
+    // Map the global export properly
+    window.Toastly = window.Toastly.default || window.Toastly.Toastly || window.Toastly;
+  </script>
+</body>
+</html>

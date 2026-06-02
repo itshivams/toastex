@@ -1,0 +1,40 @@
+{
+  "name": "toastly",
+  "version": "1.0.0",
+  "description": "A robust, enterprise-standard vanilla JS/TS toast notification library.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./toastly.css": "./dist/toastly.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "postbuild": "rm -rf example/dist && cp -r dist example/",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "toast",
+    "notification",
+    "alert",
+    "snackbar",
+    "toastly",
+    "vanilla",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
+  }
+}
