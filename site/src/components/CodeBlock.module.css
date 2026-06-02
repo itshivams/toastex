@@ -1,0 +1,46 @@
+.codeBlockWrapper {
+  background: var(--background);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.language {
+  font-size: 0.8rem;
+  color: var(--foreground);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copyButton {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.copyButton:hover {
+  opacity: 0.8;
+}
+
+.pre {
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  margin: 0;
+}

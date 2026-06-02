@@ -1,0 +1,52 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--background);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navLink {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--secondary);
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .navLink {
+    display: none;
+  }
+}
