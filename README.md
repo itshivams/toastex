@@ -10,6 +10,9 @@ A robust, enterprise-standard, and highly customizable vanilla JS/TS toast notif
 
 [![NPM Version](https://img.shields.io/npm/v/toastex.svg)](https://www.npmjs.com/package/toastex)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![Website](https://img.shields.io/badge/Website-toastex.itshivam.in-blueviolet)](https://toastex.itshivam.in)
+
+> **🌍 Visit the official website for interactive examples and full documentation:** [https://toastex.itshivam.in](https://toastex.itshivam.in)
 
 ## Features
 
