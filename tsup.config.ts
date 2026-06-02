@@ -1,9 +1,9 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.ts', 'src/toastly.css'],
+  entry: ['src/index.ts', 'src/toastex.css'],
   format: ['cjs', 'esm', 'iife'],
-  globalName: 'Toastly',
+  globalName: 'Toastex',
   dts: {
     compilerOptions: {
       ignoreDeprecations: "6.0"

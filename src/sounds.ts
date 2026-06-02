@@ -48,6 +48,6 @@ export function playSound(type: 'success' | 'error' | 'info' | 'warning' | 'defa
     osc.stop(ctx.currentTime + 0.3);
   } catch (e) {
     // Ignore audio errors (e.g. user hasn't interacted with document yet)
-    console.warn('Toastly audio playback failed:', e);
+    console.warn('Toastex audio playback failed:', e);
   }
 }

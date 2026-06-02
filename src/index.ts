@@ -1,11 +1,11 @@
 import { playSound } from './sounds';
-import './toastly.css';
+import './toastex.css';
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info' | 'default';
 export type ToastTheme = 'light' | 'dark';
 export type ToastPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center';
 
-export interface ToastlyOptions {
+export interface ToastexOptions {
   title?: string;
   message: string;
   type?: ToastType;
@@ -17,7 +17,7 @@ export interface ToastlyOptions {
   logoUrl?: string;
 }
 
-export interface ToastlyGlobalConfig {
+export interface ToastexGlobalConfig {
   theme?: ToastTheme;
   variant?: 'default' | 'swift' | 'chat' | 'minimal' | 'outline';
   position?: ToastPosition;
@@ -33,9 +33,9 @@ const ICONS = {
   default: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`
 };
 
-export class Toastly {
+export class Toastex {
   private static containers: Record<string, HTMLElement> = {};
-  private static globalConfig: ToastlyGlobalConfig = {
+  private static globalConfig: ToastexGlobalConfig = {
     theme: 'light',
     variant: 'default',
     position: 'top-right',
@@ -43,24 +43,24 @@ export class Toastly {
     sound: false
   };
 
-  public static config(options: ToastlyGlobalConfig) {
+  public static config(options: ToastexGlobalConfig) {
     this.globalConfig = { ...this.globalConfig, ...options };
   }
 
   private static ensureContainer(position: ToastPosition) {
     if (!this.containers[position]) {
       const container = document.createElement('div');
-      container.className = `toastly-container toastly-pos-${position}`;
+      container.className = `toastex-container toastex-pos-${position}`;
       document.body.appendChild(container);
       this.containers[position] = container;
     }
     return this.containers[position];
   }
 
-  public static show(options: ToastlyOptions | string) {
+  public static show(options: ToastexOptions | string) {
     if (typeof window === 'undefined') return;
 
-    const opts: ToastlyOptions = typeof options === 'string' ? { message: options } : options;
+    const opts: ToastexOptions = typeof options === 'string' ? { message: options } : options;
     
     const type = opts.type || 'default';
     const theme = opts.theme || this.globalConfig.theme || 'light';
@@ -79,42 +79,42 @@ export class Toastly {
     }
 
     const toast = document.createElement('div');
-    toast.className = `toastly toastly-type-${type} toastly-theme-${theme} toastly-variant-${variant}`;
+    toast.className = `toastex toastex-type-${type} toastex-theme-${theme} toastex-variant-${variant}`;
     
     // Icon
     const iconWrapper = document.createElement('div');
-    iconWrapper.className = 'toastly-icon';
+    iconWrapper.className = 'toastex-icon';
 
     // Content
     const content = document.createElement('div');
-    content.className = 'toastly-content';
+    content.className = 'toastex-content';
     if (opts.title) {
       const title = document.createElement('h4');
-      title.className = 'toastly-title';
+      title.className = 'toastex-title';
       title.innerText = opts.title;
       content.appendChild(title);
     }
     const message = document.createElement('p');
-    message.className = 'toastly-message';
+    message.className = 'toastex-message';
     message.innerText = opts.message;
     content.appendChild(message);
 
     // Close button
     const closeBtn = document.createElement('button');
-    closeBtn.className = 'toastly-close';
+    closeBtn.className = 'toastex-close';
     closeBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 
     if (variant === 'swift') {
       const middleWrapper = document.createElement('div');
-      middleWrapper.className = 'toastly-middle';
+      middleWrapper.className = 'toastex-middle';
       
       const iconWrapperSwift = document.createElement('div');
-      iconWrapperSwift.className = 'toastly-icon-swift';
+      iconWrapperSwift.className = 'toastex-icon-swift';
       iconWrapperSwift.innerHTML = ICONS[type] || ICONS.default;
       middleWrapper.appendChild(iconWrapperSwift);
       
       const msg = document.createElement('p');
-      msg.className = 'toastly-swift-message';
+      msg.className = 'toastex-swift-message';
       msg.innerText = opts.message;
       middleWrapper.appendChild(msg);
 
@@ -122,32 +122,32 @@ export class Toastly {
       toast.appendChild(middleWrapper);
     } else if (variant === 'chat') {
       const chatWrapper = document.createElement('div');
-      chatWrapper.className = 'toastly-chat-wrapper';
+      chatWrapper.className = 'toastex-chat-wrapper';
       
       if (opts.logoUrl) {
         const avatar = document.createElement('img');
         avatar.src = opts.logoUrl;
-        avatar.className = 'toastly-chat-avatar';
+        avatar.className = 'toastex-chat-avatar';
         chatWrapper.appendChild(avatar);
       } else {
         const defaultAvatar = document.createElement('div');
-        defaultAvatar.className = 'toastly-chat-avatar';
+        defaultAvatar.className = 'toastex-chat-avatar';
         defaultAvatar.innerHTML = ICONS[type] || ICONS.default;
         chatWrapper.appendChild(defaultAvatar);
       }
 
       const contentBox = document.createElement('div');
-      contentBox.className = 'toastly-chat-content';
+      contentBox.className = 'toastex-chat-content';
       
       if (opts.title) {
         const title = document.createElement('p');
-        title.className = 'toastly-chat-title';
+        title.className = 'toastex-chat-title';
         title.innerText = opts.title;
         contentBox.appendChild(title);
       }
       
       const msg = document.createElement('p');
-      msg.className = 'toastly-chat-message';
+      msg.className = 'toastex-chat-message';
       msg.innerText = opts.message;
       contentBox.appendChild(msg);
       
@@ -156,9 +156,9 @@ export class Toastly {
       toast.appendChild(chatWrapper);
     } else if (variant === 'minimal') {
       const minimalWrapper = document.createElement('div');
-      minimalWrapper.className = 'toastly-minimal-wrapper';
+      minimalWrapper.className = 'toastex-minimal-wrapper';
       const msg = document.createElement('p');
-      msg.className = 'toastly-minimal-message';
+      msg.className = 'toastex-minimal-message';
       msg.innerText = opts.message;
       minimalWrapper.appendChild(msg);
       minimalWrapper.appendChild(closeBtn);
@@ -182,7 +182,7 @@ export class Toastly {
     let progressInterval: number | undefined;
     if (duration > 0) {
       const progress = document.createElement('div');
-      progress.className = 'toastly-progress';
+      progress.className = 'toastex-progress';
       toast.appendChild(progress);
 
       const startTime = Date.now();
@@ -214,7 +214,7 @@ export class Toastly {
       isRemoving = true;
       if (progressInterval) cancelAnimationFrame(progressInterval);
       
-      toast.classList.add('toastly-exit');
+      toast.classList.add('toastex-exit');
       setTimeout(() => {
         if (toast.parentNode) {
           toast.parentNode.removeChild(toast);
@@ -232,18 +232,18 @@ export class Toastly {
   }
 
   // Shorthands
-  public static success(message: string, options?: Omit<ToastlyOptions, 'message'|'type'>) {
+  public static success(message: string, options?: Omit<ToastexOptions, 'message'|'type'>) {
     this.show({ ...options, message, type: 'success' });
   }
-  public static error(message: string, options?: Omit<ToastlyOptions, 'message'|'type'>) {
+  public static error(message: string, options?: Omit<ToastexOptions, 'message'|'type'>) {
     this.show({ ...options, message, type: 'error' });
   }
-  public static info(message: string, options?: Omit<ToastlyOptions, 'message'|'type'>) {
+  public static info(message: string, options?: Omit<ToastexOptions, 'message'|'type'>) {
     this.show({ ...options, message, type: 'info' });
   }
-  public static warning(message: string, options?: Omit<ToastlyOptions, 'message'|'type'>) {
+  public static warning(message: string, options?: Omit<ToastexOptions, 'message'|'type'>) {
     this.show({ ...options, message, type: 'warning' });
   }
 }
 
-export default Toastly;
+export default Toastex;

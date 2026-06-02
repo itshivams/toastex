@@ -1,14 +1,14 @@
-# toastly 🍞
+# toastex 🍞
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/itshivams/toastly/main/assets/toastly_banner.png" alt="Toastly Banner" width="100%" />
+  <img src="https://raw.githubusercontent.com/itshivams/toastex/main/assets/toastex_banner.png" alt="Toastex Banner" width="100%" />
 </div>
 
 <br/>
 
 A robust, enterprise-standard, and highly customizable vanilla JS/TS toast notification library with zero dependencies.
 
-[![NPM Version](https://img.shields.io/npm/v/toastly.svg)](https://www.npmjs.com/package/toastly)
+[![NPM Version](https://img.shields.io/npm/v/toastex.svg)](https://www.npmjs.com/package/toastex)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 ## Features
@@ -23,42 +23,42 @@ A robust, enterprise-standard, and highly customizable vanilla JS/TS toast notif
 
 ## Installation
 
-You can install `toastly` using your favorite package manager:
+You can install `toastex` using your favorite package manager:
 
 ```bash
 # using npm
-npm install toastly
+npm install toastex
 
 # using pnpm
-pnpm add toastly
+pnpm add toastex
 
 # using yarn
-yarn add toastly
+yarn add toastex
 ```
 
 ## Getting Started
 
-To start using `toastly`, import the library and its CSS file into your project.
+To start using `toastex`, import the library and its CSS file into your project.
 
 ```typescript
-import { Toastly } from 'toastly';
-import 'toastly/toastly.css'; // Don't forget the styles!
+import { Toastex } from 'toastex';
+import 'toastex/toastex.css'; // Don't forget the styles!
 
 // Simple success toast
-Toastly.success('Your changes have been saved!');
+Toastex.success('Your changes have been saved!');
 
 // Simple error toast
-Toastly.error('Oops! Something went wrong.');
+Toastex.error('Oops! Something went wrong.');
 ```
 
 ## Advanced Usage
 
-`toastly` can be customized extensively using the `Toastly.show()` method or by setting global configuration.
+`toastex` can be customized extensively using the `Toastex.show()` method or by setting global configuration.
 
 ### Show with Options
 
 ```typescript
-Toastly.show({
+Toastex.show({
   title: 'New Message',
   message: 'Hey there! How are you doing today?',
   type: 'info',         // 'success' | 'error' | 'warning' | 'info' | 'default'
@@ -75,7 +75,7 @@ Toastly.show({
 You can set default options for all your toasts so you don't have to pass them every time:
 
 ```typescript
-Toastly.config({
+Toastex.config({
   theme: 'light',
   variant: 'swift',
   position: 'bottom-right',
@@ -84,23 +84,23 @@ Toastly.config({
 });
 
 // This will now use the global configuration above
-Toastly.success('Action completed successfully!');
+Toastex.success('Action completed successfully!');
 ```
 
 ### Built-in Shorthands
 
-`toastly` provides convenient shorthand methods for common toast types:
+`toastex` provides convenient shorthand methods for common toast types:
 
 ```typescript
-Toastly.success('Success message');
-Toastly.error('Error message');
-Toastly.warning('Warning message');
-Toastly.info('Info message');
+Toastex.success('Success message');
+Toastex.error('Error message');
+Toastex.warning('Warning message');
+Toastex.info('Info message');
 ```
 
 ## API Reference
 
-### `ToastlyOptions`
+### `ToastexOptions`
 
 | Property | Type | Default | Description |
 |---|---|---|---|

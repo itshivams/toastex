@@ -1,5 +1,5 @@
 {
-  "name": "toastly",
+  "name": "toastex",
   "version": "1.0.0",
   "description": "A robust, enterprise-standard vanilla JS/TS toast notification library.",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./toastly.css": "./dist/toastly.css"
+    "./toastex.css": "./dist/toastex.css"
   },
   "files": [
     "dist"
@@ -26,7 +26,7 @@
     "notification",
     "alert",
     "snackbar",
-    "toastly",
+    "toastex",
     "vanilla",
     "typescript"
   ],
