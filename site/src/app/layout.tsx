@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SponsorModal from "@/components/SponsorModal";
 
 export const metadata: Metadata = {
   title: "Toastex - Toast Notifications",
@@ -59,7 +61,9 @@ export default function RootLayout({
           <main className="main-content">
             {children}
           </main>
+          <Footer />
         </div>
+        <SponsorModal />
       </body>
     </html>
   );

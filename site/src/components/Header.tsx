@@ -1,8 +1,14 @@
+"use client";
+
 import Link from 'next/link';
 import styles from './Header.module.css';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
+  const handleSponsorClick = () => {
+    window.dispatchEvent(new CustomEvent('open-sponsor-modal'));
+  };
+
   return (
     <header className={`${styles.header}`}>
       <div className={`container ${styles.headerContent}`}>
@@ -13,6 +19,18 @@ export default function Header() {
           <Link href="/docs" className={styles.navLink}>
             Documentation
           </Link>
+          <button
+            onClick={handleSponsorClick}
+            className={styles.navLink}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+            }}
+          >
+            Sponsor
+          </button>
           <ThemeToggle />
           <a
             href="https://github.com/itshivams/toastex"
